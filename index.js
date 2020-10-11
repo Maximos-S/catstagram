@@ -12,7 +12,7 @@ const port = 3000;
 // Controls the probability of an error being thrown. If ERROR_RATE is 0, then
 // an error will never be thrown. If ERROR_RATE is 100, then an error will
 // always be thrown:
-const ERROR_RATE = 0;
+const ERROR_RATE = 100;
 
 const getRandomInt = () => {
   // generates integer from 0 to 99:
@@ -71,6 +71,8 @@ app.patch("/kitten/downvote", (req, res) => {
 });
 
 app.post("/kitten/comments", (req, res) => {
+  console.log("hello")
+  console.log(req);
   const comment = req.body.comment;
   kitten.comments = [...kitten.comments, comment];
   res.json({ comments: kitten.comments });
